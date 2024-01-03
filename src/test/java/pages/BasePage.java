@@ -25,6 +25,23 @@ public class BasePage {
         return element.getText().toUpperCase().trim();
     }
 
+    public void clickBase(WebElement element, int time) {
+        wait(element, time);
+        element.click();
+    }
+
+    public void sendTextBase(MobileElement element, int time, String text) {
+        wait(element, time);
+        element.click();
+        element.clear();
+        element.sendKeys(text);
+        hideKeyboard();
+    }
+
+    public void hideKeyboard() {
+        AppiumConfig.getDriver().hideKeyboard();
+    }
+
     public boolean isTextContains(MobileElement element, String expectedRes, int time) {
         expectedRes = expectedRes.toUpperCase().trim();
         String actualRes = getTextBase(element, time);
