@@ -11,6 +11,9 @@ public class SearchPage extends BasePage{ // SearchScreen
     @FindBy(xpath = "//*[@text='Login']")
     MobileElement btnOpenLoginPage;
 
+    @FindBy(xpath = "//*[@text='Registration']")
+    MobileElement btnOpenRegPage;
+
     @FindBy(xpath = "//*[@text='Logout']")
     MobileElement btnLogout;
 
@@ -25,5 +28,9 @@ public class SearchPage extends BasePage{ // SearchScreen
     public boolean validateLogoutAvailable() {
         clickMoreOptions();
         return isTextContains(btnLogout, "Logout", 10);
+    }
+
+    public void clickRegBtn() {
+        clickBase(btnOpenRegPage, 10);
     }
 }
