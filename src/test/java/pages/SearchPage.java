@@ -17,6 +17,9 @@ public class SearchPage extends BasePage{ // SearchScreen
     @FindBy(xpath = "//*[@text='Logout']")
     MobileElement btnLogout;
 
+    @FindBy(xpath = "//*[@text='My Cars']")
+    MobileElement btnOpenMyCars;
+
     public void clickMoreOptions() {
         clickBase(btnMoreOptions, 15);
     }
@@ -32,5 +35,9 @@ public class SearchPage extends BasePage{ // SearchScreen
 
     public void clickRegBtn() {
         clickBase(btnOpenRegPage, 10);
+    }
+
+    public void clickMyCars() {
+        clickBase(btnOpenMyCars, 15);
     }
 }

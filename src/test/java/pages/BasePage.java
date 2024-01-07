@@ -1,6 +1,7 @@
 package pages;
 
 import config.AppiumConfig;
+import io.appium.java_client.MobileBy;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import org.openqa.selenium.WebElement;
@@ -28,6 +29,14 @@ public class BasePage {
     public void clickBase(WebElement element, int time) {
         wait(element, time);
         element.click();
+    }
+
+    public void scrollToTheElementOnTheNextScreen(String s) {
+        // textContains("type"))
+        String str =
+                String.format("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().%s)", s);
+        System.out.println("str for scrolling: " + str);
+        MobileElement element = (MobileElement) AppiumConfig.getDriver().findElement(MobileBy.AndroidUIAutomator(str));
     }
 
     public void sendTextBase(MobileElement element, int time, String text) {
