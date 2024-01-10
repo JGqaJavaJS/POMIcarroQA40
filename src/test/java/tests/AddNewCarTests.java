@@ -8,7 +8,7 @@ public class AddNewCarTests extends BaseTest{
 
     @Test
     public void addNewCarPositive() {
-        String serNumber = String.valueOf(randomUtils.generateNumber(12));
+        String serNumber = randomUtils.generateNumber(12);
         AddCarDTO addCarDTO = AddCarDTO.builder()
                 .serialNumber(serNumber)
                 .manufacture("qa40")

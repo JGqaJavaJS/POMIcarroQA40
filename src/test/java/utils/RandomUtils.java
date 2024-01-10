@@ -24,7 +24,7 @@ public class RandomUtils {
         return new String(randomString); // aksdhjTG78
     }
 
-    public int generateNumber(int length) {
+    public String generateNumber(int length) {
         String characters = "123456789";
         char[] randomString = new char[length];
         int index = 0;
@@ -33,6 +33,6 @@ public class RandomUtils {
             index = random.nextInt(charLength);
             randomString[i] = characters.charAt(index);
         }
-        return Integer.parseInt(new String(randomString));
+        return (new String(randomString));
     }
 }

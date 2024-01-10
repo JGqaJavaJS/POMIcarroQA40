@@ -1,7 +1,9 @@
 package pages;
 
+import config.AppiumConfig;
 import dto.AddCarDTO;
 import io.appium.java_client.MobileElement;
+import org.openqa.selenium.By;
 import org.openqa.selenium.support.FindBy;
 
 public class AddNewCarPage extends BasePage{
@@ -28,8 +30,17 @@ public class AddNewCarPage extends BasePage{
     MobileElement btnOpenFuelTypes;
 
     // TODO fix here - add possibility to use any fuel type
-    @FindBy(xpath="//*[@resource-id='Gas']")
-    MobileElement btnGas;
+    @FindBy(xpath="//*[@text='Diesel']")
+                //*[@text='Diesel']
+    MobileElement btnDiesel;
+
+    public MobileElement getElementByFuelType(String fuelType) {
+        String locator = String.format("//*[@text='%s']", fuelType);
+        return (MobileElement) AppiumConfig.getDriver().findElement(By.xpath(locator));
+    }
+
+//    String someStrVariable = "";
+//    By someEl = By.xpath(String.format("//a[@attName='idForCar=%s']", someStrVariable));
 
     @FindBy(xpath="//*[@resource-id='com.telran.ilcarro:id/editYear']")
     MobileElement inputYear;
@@ -50,7 +61,8 @@ public class AddNewCarPage extends BasePage{
         typeCity(car.getCity());
         typeCarPrice(car.getPricePerDay());
         typeClassCar(car.getCarClass());
-        scrollToTheElementOnTheNextScreen("something?????");
+        // textContains(\"type\"))
+        scrollToTheElementOnTheNextScreen("textContains(\"Add\")");
         clickOpenFuelTypes();
         // TODO fuel
         clickOnGivenFuelType(car.getFuel());
@@ -78,7 +90,8 @@ public class AddNewCarPage extends BasePage{
 
     public void clickOnGivenFuelType(String fuel) {
         // TODO
-        clickBase(btnGas, 15);
+       // clickBase(btnDiesel, 15);
+        clickBase(getElementByFuelType(fuel), 15);
     }
 
     public void clickOpenFuelTypes() {

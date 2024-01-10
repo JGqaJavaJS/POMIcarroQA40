@@ -32,7 +32,7 @@ public class BasePage {
     }
 
     public void scrollToTheElementOnTheNextScreen(String s) {
-        // textContains("type"))
+        // s = textContains(\"type\")) - example
         String str =
                 String.format("new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().%s)", s);
         System.out.println("str for scrolling: " + str);
