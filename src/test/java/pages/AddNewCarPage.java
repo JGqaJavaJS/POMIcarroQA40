@@ -61,7 +61,7 @@ public class AddNewCarPage extends BasePage{
         typeCity(car.getCity());
         typeCarPrice(car.getPricePerDay());
         typeClassCar(car.getCarClass());
-        // textContains(\"type\"))
+        // textContains(\"type\")
         scrollToTheElementOnTheNextScreen("textContains(\"Add\")");
         clickOpenFuelTypes();
         // TODO fuel
